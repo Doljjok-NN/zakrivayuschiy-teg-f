@@ -235,6 +235,7 @@
   line-height: 14px;
   /* text-transform: uppercase; */
   opacity: 0.5;
+  z-index: 2;
 }
 
 @supports (
@@ -399,6 +400,36 @@ dialog[open] .dialog-button {
   padding-block-start: 10.5px;
   padding-block-end: 10.5px;
 }
+
+
+/* ------------------------ФИЛЬТРЫ-------------------------------------------- */
+
+.blur {
+  filter: blur(3px);
+}
+
+.saturate {
+  filter: saturate(2.2);
+}
+
+.brightness {
+  filter: brightness(30%);
+}
+
+.grayscale {
+  filter: grayscale(80%);
+}
+
+.hue-rotate {
+  filter: hue-rotate(0.5turn);
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+
+
 
 @media (min-width: 690px) {
   .header {

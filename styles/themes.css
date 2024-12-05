@@ -16,6 +16,8 @@
   --text-button: white;
   --lable-color: white;
   --icon-color: black;
+  --font-wght:400;
+  --title-wght:700;
 }
 
 :root.theme-dark {
@@ -29,6 +31,8 @@
   --text-button: rgb(0, 204, 20);
   --lable-color: black;
   --icon-color: rgb(0, 204, 20);
+  --font-wght:465;
+  --title-wght:785;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,5 +47,7 @@
     --text-button: rgb(0, 204, 20);
     --lable-color: black;
     --icon-color: rgb(0, 204, 20);
+    --font-wght:465;
+    --title-wght:785;
   }
 }

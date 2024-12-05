@@ -26,6 +26,13 @@
     }
 }
 
+.theme-menu__button:disabled::before {
+    content: "▶";
+    position: absolute;
+    animation: move 0.5s infinite ease-in-out;
+    left: -15px;
+}
+
 
 @keyframes heart {
     0% {
@@ -37,6 +44,11 @@
     }
 }
 
+.like-icon.is-liked .heart {
+    animation: heart 0.3s ease-in-out 1 alternate;
+    transform-origin: center;
+}
+
 
 @keyframes sparks {
     0% {
@@ -46,4 +58,9 @@
     100% {
         opacity: 1;
     }
+}
+
+
+.like-icon.is-liked .sparks {
+    animation: sparks 0.3s 0.3s ease-in 1 alternate;
 }

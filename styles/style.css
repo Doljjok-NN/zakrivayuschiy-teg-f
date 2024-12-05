@@ -21,7 +21,7 @@
   margin: 0 auto;
   color: var(--text-color);
   font-family: Inter, Arial, Helvetica, sans-serif;
-  font-variation-settings: "wght" 400;
+  font-variation-settings: "wght" var(--font-wght);
   background-image: var(--background-image);
   background-size: cover;
   background-position: center;
@@ -41,36 +41,38 @@
   align-items: center;
   flex-direction: column;
   justify-content: end;
-  min-height: 323px;
   max-inline-size: 696px;
-  gap: 16px;
+  gap: 13px;
   margin-block-start: 102px;
   margin-block-end: 104px;
   border: 2px solid var(--text-color);
   background: var(--bg-color);
 }
 
+.button-style {
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
 .header-title {
   color: var(--text-color);
-  font-family: "PressStart2P";
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: clamp(2.8125rem, 2.3724rem + 1.8779vw, 4.0625rem);
   font-weight: 400;
   line-height: 65px;
-  letter-spacing: 0%;
   text-align: left;
   text-transform: uppercase;
-  margin-block-end: px;
+  padding-block-start: 115px;
 }
 
 .header-subtitle {
-  font-family: "PressStart2P";
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   font-weight: 400;
   line-height: 14px;
-  letter-spacing: 0%;
   text-transform: uppercase;
-  margin-block-start:px;
-  margin-block-end: px;
 }
 
 .theme-menu__list {
@@ -81,17 +83,9 @@
 }
 
 .theme-menu__button {
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
-  font-size: 14px;
   position: relative;
-  transition: opacity 0.3s ease;
-}
-
-.theme-menu__button:disabled::before {
-  content: "▶";
-  position: absolute;
-  animation: move 0.9s infinite ease-in-out;
-  left: -15px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
 .theme-menu__button:disabled {
@@ -105,14 +99,17 @@
 
 .theme-menu__button:focus {
   outline: none;
+}
+
+.theme-menu__button:focus-visible {
   opacity: 0.6;
 }
 
 .theme-menu__button::after {
   position: absolute;
   content: "";
-  left: 0;
-  bottom: -1;
+  left: 6px;
+  bottom: -2px;
   display: block;
   width: 0;
   transition: 0.3s;
@@ -121,7 +118,7 @@
 }
 
 .theme-menu__button:focus-visible::after {
-  width: 100%;
+  width: 85%;
 }
 
 .main {
@@ -132,11 +129,6 @@
 
 /* -------------------------АНИМАЦИИ КНОПКИ ЛАЙКА------------------------------------------------- */
 
-.like-icon.is-liked .heart {
-  animation: heart 0.3s ease-in-out;
-  transform-origin: center;
-}
-
 .contour {
   fill: var(--text-color);
   transition: fill 0.1s linear;
@@ -144,32 +136,32 @@
 
 .core {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s 0.03s ease;
 }
 
 .main-body {
   fill: transparent;
-  transition: fill 0.3s 0.05s ease;
+  transition: fill 0.3s ease;
 }
 
 .like-icon:hover .core {
   fill: var(--text-color);
-  transition: fill 0.3s 0.03s ease;
+  transition: fill 0.3s ease;
 }
 
 .like-icon:hover .main-body {
   fill: var(--text-color);
-  transition: fill 0.3s ease;
+  transition: fill 0.3s 0.05s ease;
 }
 
 .like-icon:active .core {
   fill: red;
-  transition: fill 0.3s 0.03s ease;
+  transition: fill 0.3s ease;
 }
 
 .like-icon:active .main-body {
   fill: red;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s 0.03s ease;
 }
 
 .like-icon.is-liked .contour {
@@ -179,16 +171,12 @@
 
 .like-icon.is-liked .core {
   fill: red;
-  transition: fill 0.3s 0.03s ease;
+  transition: fill 0.3s ease;
 }
 
 .like-icon.is-liked .main-body {
   fill: red;
-  transition: fill 0.3s 0.03s ease;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s 0.3s ease-in;
+  transition: fill 0.3s 0.05s ease;
 }
 
 .sparks {
@@ -203,20 +191,22 @@
   background: var(--bg-color);
 }
 
-.cards-title {
-  padding-inline-start: 10px;
-}
-
 .title {
+  padding-inline-start: 10px;
   padding-block-start: 5px;
   padding-block-end: 5px;
   font-size: 18px;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" var(--title-wght);
   max-width: 351px;
 }
 
 .cards-img {
+  max-height: 692px;
+}
+
+.cards-img {
   position: relative;
+  outline: 2px solid var(--text-color, #000000);
 }
 
 .img {
@@ -229,23 +219,22 @@
   right: 25px;
   top: 25px;
   color: var(--text-color);
-  font-family: "PressStart2P";
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
-  /* text-transform: uppercase; */
   opacity: 0.5;
   z-index: 2;
 }
 
 @supports (
-  (text-stroke: 1px var(--lable-color)) or
+  /* (text-stroke: 1px var(--lable-color)) or */
     (-webkit-text-stroke: 1px var(--lable-color))
 ) {
   .lable {
     -webkit-text-stroke: 1px var(--lable-color);
-    text-stroke: 1px var(--lable-color);
-    /* text-shadow: 1px var(--lable-color); */
+    /* text-stroke: 1px var(--lable-color);
+    text-shadow: 1px var(--lable-color); */
   }
 }
 
@@ -255,9 +244,9 @@
   padding-block-start: 25px;
   display: grid;
   gap: 25px;
-  font-family: Inter;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: var(--font-wght);
   line-height: 21px;
 }
 
@@ -269,8 +258,12 @@
 }
 
 .card__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin-inline-end: 3px;
+  transition: border 0.3s linear;
 }
 
 .card__icon-button:focus-visible {
@@ -282,15 +275,15 @@
   box-sizing: border-box;
   border: 2px solid var(--text-color);
   display: flex;
+  min-width: 130px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12.5px 37px;
-  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  padding: 12.5px;
   transition: 0.3s ease;
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.3s linear;
 }
 
 .cards-button:focus {
@@ -306,6 +299,7 @@
   content: "";
   background-color: var(--text-color);
   transition: all 0.5s ease-in-out;
+  left: 0;
   width: 100%;
   height: 100%;
   transform: translateX(-100%);
@@ -322,9 +316,9 @@
   mix-blend-mode: difference;
 }
 
-/* --------------------------------------------ФУТЕР--------------------------------------------------- */
+/* --------------------------------------------DIALOG--------------------------------------------------- */
 
-.footer {
+.section-button-dialog {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -332,7 +326,7 @@
   margin: 0 auto;
 }
 
-.footer-button {
+.button-save {
   margin-block-start: 50px;
   margin-block-end: 102px;
   width: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
@@ -348,7 +342,7 @@
 
 .text {
   color: var(--text-color);
-  font-family: "PressStart2P";
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -361,13 +355,13 @@
   /* mix-blend-mode: difference; */
 }
 
-dialog[open] {
+dialog {
+  display: none;
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  display: grid;
   grid-template-columns: 1fr 2.5fr;
   align-items: center;
   justify-content: center;
-  row-gap: 20px;
+  row-gap: 30px;
   column-gap: 20px;
   box-sizing: border-box;
   border: 2px solid var(--text-color);
@@ -376,14 +370,22 @@ dialog[open] {
   padding-block-end: 30px;
 }
 
-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+.dialog[open] {
+  display: grid;
 }
 
-dialog[open] .dialog-button {
+dialog::backdrop {
+  background-color: rgb(0 0 0);
+  opacity: 75%;
+}
+
+.dialog-button {
   grid-column: 1/3;
 }
+
+/* dialog[open] .dialog-button {
+ 
+} */
 
 .popap-icon {
   justify-self: end;
@@ -393,6 +395,7 @@ dialog[open] .dialog-button {
   max-width: 200px;
   line-height: 17px;
   justify-self: start;
+  text-transform: uppercase;
 }
 
 .dialog-button {
@@ -401,46 +404,77 @@ dialog[open] .dialog-button {
   padding-block-end: 10.5px;
 }
 
-
 /* ------------------------ФИЛЬТРЫ-------------------------------------------- */
 
-.blur {
+.filter-blur {
   filter: blur(3px);
 }
 
-.saturate {
+.filter-saturate {
   filter: saturate(2.2);
 }
 
-.brightness {
+.filter-brightness {
   filter: brightness(30%);
 }
 
-.grayscale {
+.filter-grayscale {
   filter: grayscale(80%);
 }
 
-.hue-rotate {
+.filter-hue-rotate {
   filter: hue-rotate(0.5turn);
 }
 
-.invert {
+.filter-invert {
   filter: invert(100%);
 }
 
+.filter-sepia {
+  filter: sepia(0.6);
+}
 
+.filter-mix {
+  filter: sepia(0.6) invert(100%);
+}
 
+/* ------------------------------------------------------------------------------------------ */
 
 @media (min-width: 690px) {
   .header {
     margin: 102px auto;
+    gap: 28px;
+  }
+
+  .header-title {
+    padding-block-start: 130px;
   }
 
   .main {
     margin: 0 auto;
   }
 
+  
   .title {
     max-width: 662px;
+  }
+
+  .button-save {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 335px;
+  }
+
+  .button-save .text {
+    font-family: "PressStart2P";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12.6px;
+  }
+
+  .button-save .floppy {
+    width: 21px;
   }
 }

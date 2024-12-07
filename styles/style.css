@@ -17,7 +17,6 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  /* max-inline-size: 1440px; */
   margin: 0 auto;
   color: var(--text-color);
   font-family: Inter, Arial, Helvetica, sans-serif;
@@ -28,38 +27,35 @@
   background-attachment: fixed;
 }
 
-/* .like-icon path {
-  fill: var(--text-color);
-}
-
-.like-icon.is-liked path {
-  fill: var(--like-icon-color);
-} */
-
 .header {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: end;
   max-inline-size: 696px;
-  gap: 13px;
   margin-block-start: 102px;
-  margin-block-end: 104px;
+  margin-block-end: 100px;
   border: 2px solid var(--text-color);
   background: var(--bg-color);
 }
+
+/* ------------------------------ПОВТОРЯЮЩИЕСЯ СТИЛИ ДЛЯ КНОПОК!!------------------------------------------- */
 
 .button-style {
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: var(--text-color);
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-wght);
+  box-sizing: border-box;
+  border: 2px solid var(--text-color);
 }
+
+/* ------------------------------------------------------------------------------------------- */
 
 .header-title {
   color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
-  font-size: clamp(2.8125rem, 2.3724rem + 1.8779vw, 4.0625rem);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: 400;
   line-height: 65px;
   text-align: left;
@@ -68,16 +64,18 @@
 }
 
 .header-subtitle {
+  margin-block-start: 10px;
+  margin-block-end: 20px;
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-wght);
   line-height: 14px;
   text-transform: uppercase;
 }
 
 .theme-menu__list {
   display: grid;
-  row-gap: 12px;
+  row-gap: 10px;
   margin-block-end: 16px;
   margin-inline-start: 16px;
 }
@@ -86,6 +84,7 @@
   position: relative;
   transition: all 0.3s ease;
   text-transform: uppercase;
+  border: none;
 }
 
 .theme-menu__button:disabled {
@@ -123,7 +122,7 @@
 
 .main {
   display: grid;
-  row-gap: 47px;
+  row-gap: 50px;
   max-inline-size: 696px;
 }
 
@@ -216,12 +215,12 @@
 
 .lable {
   position: absolute;
-  right: 25px;
-  top: 25px;
+  right: 10px;
+  top: 28px;
   color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-wght);
   line-height: 14px;
   opacity: 0.5;
   z-index: 2;
@@ -246,7 +245,7 @@
   gap: 25px;
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-weight: var(--font-wght);
+  font-variation-settings: 'wght' var(--font-wght);
   line-height: 21px;
 }
 
@@ -254,15 +253,16 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 25px;
+  padding: 24px;
 }
 
 .card__icon-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: 1px;
   margin-inline-end: 3px;
+  border: 2px solid transparent;
   transition: border 0.3s linear;
 }
 
@@ -272,7 +272,6 @@
 
 .cards-button {
   justify-self: end;
-  box-sizing: border-box;
   border: 2px solid var(--text-color);
   display: flex;
   min-width: 130px;
@@ -284,6 +283,10 @@
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.3s linear;
+}
+
+.button-text::first-letter {
+  text-transform: uppercase;
 }
 
 .cards-button:focus {
@@ -327,10 +330,8 @@
 }
 
 .button-save {
-  margin-block-start: 50px;
   margin-block-end: 102px;
   width: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
-  border: 2px solid var(--text-color);
   background: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -344,7 +345,7 @@
   color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-wght);
   line-height: 14px;
 }
 
@@ -352,6 +353,7 @@
   color: var(--icon-color);
   z-index: 1;
   max-width: 39px;
+
   /* mix-blend-mode: difference; */
 }
 
@@ -362,7 +364,6 @@ dialog {
   align-items: center;
   justify-content: center;
   row-gap: 30px;
-  column-gap: 20px;
   box-sizing: border-box;
   border: 2px solid var(--text-color);
   background: var(--bg-color);
@@ -388,20 +389,28 @@ dialog::backdrop {
 } */
 
 .popap-icon {
-  justify-self: end;
+  justify-self: center;
 }
 
 .popap-text {
-  max-width: 200px;
-  line-height: 17px;
+  max-width: 234px;
   justify-self: start;
   text-transform: uppercase;
+  font-family: 'PressStart2P',Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .dialog-button {
-  border: 2px solid var(--text-color, #00cc14);
-  padding-block-start: 10.5px;
-  padding-block-end: 10.5px;
+  padding-block-start: 8px;
+  padding-block-end: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-button span {
+  text-transform: uppercase;
 }
 
 /* ------------------------ФИЛЬТРЫ-------------------------------------------- */
@@ -443,35 +452,35 @@ dialog::backdrop {
 @media (min-width: 690px) {
   .header {
     margin: 102px auto;
-    gap: 28px;
+    gap: 0px;
+  }
+
+  .header-subtitle {
+    margin-block-start: 30px;
   }
 
   .header-title {
-    padding-block-start: 130px;
+    padding-block-start: 133px;
+    font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  }
+
+  .theme-menu__list {
+    margin-block-start: 5px;
   }
 
   .main {
     margin: 0 auto;
+    gap: 55px;
   }
 
-  
   .title {
     max-width: 662px;
   }
 
   .button-save {
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     min-width: 335px;
-  }
-
-  .button-save .text {
-    font-family: "PressStart2P";
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 12.6px;
+    padding: 11px;
   }
 
   .button-save .floppy {

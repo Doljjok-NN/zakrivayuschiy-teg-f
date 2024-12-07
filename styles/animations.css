@@ -14,27 +14,25 @@
 */
 
 
-@keyframes move {
-    0% {
-        transform: translate(0);
+@keyframes animation-of-the-arrow {
+    from {
+        transform: translate(0px);
     }
-    50% {
+    to {
         transform: translate(4px);
-    }
-    100% {
-        transform: translate(0);
     }
 }
 
 .theme-menu__button:disabled::before {
     content: "▶";
     position: absolute;
-    animation: move 0.5s infinite ease-in-out;
+    animation: animation-of-the-arrow 0.5s infinite ease-in-out;
+    animation-direction: alternate;
     left: -15px;
 }
 
 
-@keyframes heart {
+@keyframes animation-of-the-heart {
     0% {
         transform:scale(1);
     }
@@ -45,12 +43,12 @@
 }
 
 .like-icon.is-liked .heart {
-    animation: heart 0.3s ease-in-out 1 alternate;
+    animation: animation-of-the-heart 0.1s 0.3s ease-in-out 1 alternate;
     transform-origin: center;
 }
 
 
-@keyframes sparks {
+@keyframes animation-of-sparks {
     0% {
         opacity: 0;
     }
@@ -62,5 +60,5 @@
 
 
 .like-icon.is-liked .sparks {
-    animation: sparks 0.3s 0.3s ease-in 1 alternate;
+    animation: animation-of-sparks 0.3s 0.3s ease-in 1 alternate;
 }

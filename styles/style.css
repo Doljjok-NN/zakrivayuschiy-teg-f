@@ -45,7 +45,7 @@
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: var(--text-color);
-  font-variation-settings: 'wght' var(--font-wght);
+  font-variation-settings: "wght" var(--font-wght);
   box-sizing: border-box;
   border: 2px solid var(--text-color);
 }
@@ -68,7 +68,7 @@
   margin-block-end: 20px;
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  font-variation-settings: 'wght' var(--font-wght);
+  font-variation-settings: "wght" var(--font-wght);
   line-height: 14px;
   text-transform: uppercase;
 }
@@ -220,7 +220,7 @@
   color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-variation-settings: 'wght' var(--font-wght);
+  font-variation-settings: "wght" var(--font-wght);
   line-height: 14px;
   opacity: 0.5;
   z-index: 2;
@@ -228,8 +228,7 @@
 
 @supports (
   /* (text-stroke: 1px var(--lable-color)) or */
-    (-webkit-text-stroke: 1px var(--lable-color))
-) {
+  (-webkit-text-stroke: 1px var(--lable-color))) {
   .lable {
     -webkit-text-stroke: 1px var(--lable-color);
     /* text-stroke: 1px var(--lable-color);
@@ -245,7 +244,7 @@
   gap: 25px;
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-variation-settings: 'wght' var(--font-wght);
+  font-variation-settings: "wght" var(--font-wght);
   line-height: 21px;
 }
 
@@ -345,7 +344,7 @@
   color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-variation-settings: 'wght' var(--font-wght);
+  font-variation-settings: "wght" var(--font-wght);
   line-height: 14px;
 }
 
@@ -384,10 +383,6 @@ dialog::backdrop {
   grid-column: 1/3;
 }
 
-/* dialog[open] .dialog-button {
- 
-} */
-
 .popap-icon {
   justify-self: center;
 }
@@ -396,7 +391,7 @@ dialog::backdrop {
   max-width: 234px;
   justify-self: start;
   text-transform: uppercase;
-  font-family: 'PressStart2P',Arial, Helvetica, sans-serif;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 21px;
 }

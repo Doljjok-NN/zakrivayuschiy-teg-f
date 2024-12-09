@@ -48,6 +48,9 @@
   font-variation-settings: "wght" var(--font-wght);
   box-sizing: border-box;
   border: 2px solid var(--text-color);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s linear;
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -85,6 +88,10 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   border: none;
+  font-family: "PressStart2P", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: var(--text-color);
+  font-variation-settings: "wght" var(--font-wght);
 }
 
 .theme-menu__button:disabled {
@@ -228,7 +235,8 @@
 
 @supports (
   /* (text-stroke: 1px var(--lable-color)) or */
-  (-webkit-text-stroke: 1px var(--lable-color))) {
+    (-webkit-text-stroke: 1px var(--lable-color))
+) {
   .lable {
     -webkit-text-stroke: 1px var(--lable-color);
     /* text-stroke: 1px var(--lable-color);
@@ -278,13 +286,12 @@
   justify-content: center;
   align-items: center;
   padding: 12.5px;
-  transition: 0.3s ease;
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.3s linear;
 }
 
-.button-text::first-letter {
+.button__text::first-letter {
   text-transform: uppercase;
 }
 
@@ -311,8 +318,30 @@
   transform: translateX(0);
 }
 
-.button-text {
-  /* position: relative; */
+.button-style:focus {
+  outline: none;
+}
+
+.button-style:focus-visible {
+  box-shadow: 2px 2px var(--text-color);
+}
+
+.button-style::after {
+  position: absolute;
+  content: "";
+  background-color: var(--text-color);
+  transition: all 0.5s ease-in-out;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+}
+
+.button-style:hover::after {
+  transform: translateX(0);
+}
+
+.button__text {
   z-index: 1;
   color: var(--text-button);
   mix-blend-mode: difference;
@@ -341,17 +370,22 @@
 }
 
 .text {
-  color: var(--text-color);
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-variation-settings: "wght" var(--font-wght);
   line-height: 14px;
+  z-index: 1;
+  color: var(--text-button);
+  mix-blend-mode: difference;
 }
 
 .floppy {
-  color: var(--icon-color);
+  /* color: var(--icon-color); */
   z-index: 1;
   max-width: 39px;
+  z-index: 1;
+  color: var(--text-button);
+  mix-blend-mode: difference;
 
   /* mix-blend-mode: difference; */
 }
@@ -359,15 +393,15 @@
 dialog {
   display: none;
   width: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: min-content 2.5fr;
   align-items: center;
   justify-content: center;
+  column-gap: 20px;
   row-gap: 30px;
   box-sizing: border-box;
   border: 2px solid var(--text-color);
   background: var(--bg-color);
-  padding-block-start: 30px;
-  padding-block-end: 30px;
+  padding: 30px 42px;
 }
 
 .dialog[open] {
@@ -384,11 +418,11 @@ dialog::backdrop {
 }
 
 .popap-icon {
-  justify-self: center;
+  justify-self: left;
 }
 
 .popap-text {
-  max-width: 234px;
+  min-width: 198px;
   justify-self: start;
   text-transform: uppercase;
   font-family: "PressStart2P", Arial, Helvetica, sans-serif;
@@ -397,8 +431,9 @@ dialog::backdrop {
 }
 
 .dialog-button {
-  padding-block-start: 8px;
-  padding-block-end: 8px;
+  box-sizing: border-box;
+  padding-block-start: 12.5px;
+  padding-block-end: 12.5px;
   display: flex;
   align-items: center;
   justify-content: center;

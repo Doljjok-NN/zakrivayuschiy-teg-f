@@ -401,7 +401,7 @@ dialog {
   box-sizing: border-box;
   border: 2px solid var(--text-color);
   background: var(--bg-color);
-  padding: 30px 42px;
+  padding: 30px 27px;
 }
 
 .dialog[open] {
